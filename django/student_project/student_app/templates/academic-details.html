@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Details</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Academic Details</h2>
+        <p>Please provide your academic information below</p>
+
+        <form   onsubmit="return validateForm()"  method="POST">
+            {% csrf_token %}
+            
+            <label for="course">Course Name</label>
+            <input type="text" id="course" name="course_name" placeholder="e.g. Bachelor of Computer Science">
+
+            <div class="year-container">
+                <div>
+                    <label for="from-year">From Year</label>
+                    <select id="from-year" name="from_year">
+                        <option>Select start year</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="to-year">To Year</label>
+                    <select id="to-year" name="to_year">
+                        <option>Select end year</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                    </select>
+                </div>
+            </div>
+
+            <label for="department">Department Name</label>
+            <input type="text" id="department" name="department_name" placeholder="e.g. Computer Science and Engineering">
+
+            <label for="college">College Name</label>
+            <input type="text" id="college" name="college_name" placeholder="Enter your college name">
+
+            <label for="university">University Name</label>
+            <input type="text" id="university" name="university_name" placeholder="Enter your university name">
+
+            <label for="cgpa">CGPA</label>
+            <input type="text" id="cgpa" name="cgpa" placeholder="Enter your CGPA (0-10)">
+
+            <!-- Accommodation Radio Buttons
+            <label>Accommodation</label>
+            <div class="radio-container">
+                <input type="radio" id="hostel" name="accommodation" value="hostel">
+                <label for="hostel">Hostel</label>
+            </div>
+
+            <div class="radio-container">
+                <input type="radio" id="dayscholar" name="accommodation" value="dayscholar">
+                <label for="dayscholar">Day Scholar</label>
+            </div> -->
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="declaration" name="declaration"><div class="f">
+                <label for="declaration">I hereby declare that all the information provided above is true and correct to the best of my knowledge and belief.</label></div>
+            </div>
+
+            <button type="submit">Submit Academic Details</button>
+        </form>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
